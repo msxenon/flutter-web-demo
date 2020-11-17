@@ -1,25 +1,19 @@
-import 'dart:convert';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_web_demo/repo/data/post_model.dart';
 
 class PostsRepo {
-   List<PostModel>? posts;
-  Future<List<PostModel>>  getPosts ()async{
-      if(posts == null) {
-         await _loadData();
-      }
-        return posts!;
-  }
-  Future _loadData() async {
-    String jsonString = await _loadFromAsset();
-    final List<dynamic>jsonResponse = jsonDecode(jsonString);
-    posts = List.generate(jsonResponse.length, (index) {
-      return PostModel.fromJson(jsonResponse[index]);
-    });
-    return true;
-  }
-  Future<String>_loadFromAsset() async {
-    return await rootBundle.loadString('/posts.json');
-  }
+   List<PostModel> posts;
+   PostsRepo():
+     posts = [
+       PostModel(userId: 1, id: 1, title: 'Tech news post title #1', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 2, title: 'new Tech news post title #2', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 3, title: 'latest Tech news post title #3', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 4, title: 'Computer Tech news post title #4', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 5, title: 'OS Tech news post title #5', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 6, title: 'UbiSoft news post title #1', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 7, title: 'WIX Tech news post title #2', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 8, title: 'AMAZON Tech news post title #3', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 9, title: 'Microsoft Tech news post title #4', body: 'Tech news post body'),
+       PostModel(userId: 1, id: 10, title: 'Apple Tech news post title #5', body: 'Tech news post body'),
+     ];
 }

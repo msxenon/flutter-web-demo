@@ -16,6 +16,11 @@ class PostModel {
     required this.body});
 
 
+  @override
+  String toString() {
+    return 'PostModel{userId: $userId, id: $id, title: $title, body: $body}';
+  }
+  String get fullTitle => '$title #$id';
   factory PostModel.fromJson(Map<String, dynamic> json) {
     return PostModel(
       userId: json['userId'],

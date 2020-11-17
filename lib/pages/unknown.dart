@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class UnKnown extends StatelessWidget {
   UnKnown({Key? key}) : super(key: key);
+  static const String route = '/404';
 
    @override
   Widget build(BuildContext context) {
